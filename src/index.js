@@ -4,9 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const couters = Array.from({ length: 3 });
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {
+      couters.map((item, index) => {
+        return <App key={index} />
+      })
+    }
   </React.StrictMode>,
   document.getElementById('root')
 );

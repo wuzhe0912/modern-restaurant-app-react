@@ -6,28 +6,25 @@ function App() {
   const number = {
     fontSize: '28px',
   };
-  const [count, setCount] = useState(12);
+  const [count, setCount] = useState(4);
 
-  const addNumber = () => {
-    setCount(count + 1);
-  };
-
-  const cutNumber = () => {
-    setCount(count - 1);
-  };
+  const handleClick = (type) =>
+    setCount(type === 'increment' ? count + 1 : count - 1);
 
   return (
     <div className="App">
       <header className="App-header">
         <div className="counter__container">
           <i
-            className="cheveron cheveron__up"
-            onClick={ addNumber }
+            className={`cheveron cheveron__up ${count >= 8 && 'display-none'}`}
+            onClick={ () => handleClick('increment') }
           />
+
           <span style={ number }>{ count }</span>
+
           <i
-            className="cheveron cheveron__down"
-            onClick={ cutNumber }
+            className={`cheveron cheveron__down ${count <= 0 && 'visibility-hidden'}`}
+            onClick={ () => handleClick() }
           />
         </div>
       </header>
