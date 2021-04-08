@@ -1,3 +1,13 @@
-# Todo App(React version)
+# Todo App(Hooks version)
 
-## feature
+## Use
+
+- `#React`、`React Hooks`
+- `styled-components`
+
+## Feature
+
+- `Dark Mode`
+- `add`
+- `delete`
+- `filter`
