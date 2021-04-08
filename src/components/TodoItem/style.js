@@ -104,7 +104,15 @@ export const CheckText = styled.div`
   padding-left: 16px;
 
   span {
-    letter-spacing: 1px;
+    display: flex;
+    max-width: 220px;
+    overflow-x: auto;
+
+    &:-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      background-color: #f5f5f5;
+    }
   }
 
   .checked-text {
@@ -112,6 +120,12 @@ export const CheckText = styled.div`
     text-decoration: line-through;
     opacity: 0.8;
     font-style: italic;
+  }
+
+  ${MEDIA_QUERY_SM} {
+    span {
+      max-width: 420px;
+    }
   }
 `;
 
