@@ -28,6 +28,7 @@ export const TitleLogo = styled.div`
 export const ModeIcon = styled.img`
   width: 20px;
   height: 20px;
+  cursor: pointer;
 
   ${MEDIA_QUERY_SM} {
     width: 26px;
@@ -35,13 +36,13 @@ export const ModeIcon = styled.img`
   }
 `;
 
-export const TodoForm = styled.form`
+export const Form = styled.form`
   width: 100%;
   margin-top: 40px;
   position: relative;
 `;
 
-export const TodoInput = styled.input`
+export const Input = styled.input`
   width: 100%;
   height: 48px;
   background: ${({ theme }) => theme.colors.InputBg};
@@ -55,7 +56,7 @@ export const TodoInput = styled.input`
   }
 `;
 
-export const TodoInputBtn = styled.button`
+export const InputBtn = styled.button`
   position: absolute;
   right: 12px;
   top: 12px;
@@ -70,5 +71,3 @@ export const TodoInputBtn = styled.button`
     height: 36px;
   }
 `;
-
-export const TodoInputIcon = styled.img``;

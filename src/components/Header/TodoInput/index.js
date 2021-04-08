@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   TitleWrap,
   TitleLogo,
   ModeIcon,
-  TodoForm,
-  TodoInput,
-  TodoInputBtn,
-  TodoInputIcon,
-} from 'components/TodoTitleStyle';
+  Form,
+  Input,
+  InputBtn,
+} from 'components/Header/TodoInput/style';
 import MoonIcon from 'assets/icon-moon.svg';
 import SunIcon from 'assets/icon-sun.svg';
 import CheckIcon from 'assets/icon-check.svg';
+import TodoContext from 'components/TodoContext';
+import { saveLocalStorage } from 'components/Storage';
 
-const TodoTitle = ({ theme, setTheme }) => {
+const TodoInput = ({ theme, setTheme }) => {
   const [inputText, setInputText] = useState('');
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useContext(TodoContext);
 
   const handleToggler = () => {
     if (theme === 'light') {
@@ -40,9 +41,15 @@ const TodoTitle = ({ theme, setTheme }) => {
         },
       ]);
     }
-    console.log(todos);
     setInputText('');
   };
+
+  useEffect(() => {
+    if (todos.length > 0) {
+      saveLocalStorage(todos);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [todos]);
 
   return (
     <TitleWrap>
@@ -53,20 +60,19 @@ const TodoTitle = ({ theme, setTheme }) => {
           src={theme === 'light' ? MoonIcon : SunIcon}
         />
       </TitleLogo>
-      <TodoForm>
-        <TodoInput
+      <Form>
+        <Input
           onChange={handleInput}
           value={inputText}
           type='text'
           placeholder='Create a new todo...'
         />
-        <TodoInputBtn onClick={handleSubmit} type='submit'>
-          <TodoInputIcon src={CheckIcon} alt=''></TodoInputIcon>
-          {/* <img src={CheckIcon} style={{ background: 'red' }} alt=''></img> */}
-        </TodoInputBtn>
-      </TodoForm>
+        <InputBtn onClick={handleSubmit} type='submit'>
+          <img src={CheckIcon} alt=''></img>
+        </InputBtn>
+      </Form>
     </TitleWrap>
   );
 };
 
-export default TodoTitle;
+export default TodoInput;

@@ -11,6 +11,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  body {
+    background-color: ${({ theme }) => theme.colors.ItemBg};
+    min-height: 100vh;
+    transition: all 0.3s ease;
+  }
+
   a {
     text-decoration: none;
   }
