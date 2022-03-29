@@ -1,15 +1,3 @@
-# Todo App(Hooks version)
+# Modern Restaurant App
 
-- [Site Link](https://todos-react-hooks.netlify.app/)
-
-## Use
-
-- `#React`、`React Hooks`
-- `styled-components`
-
-## Feature
-
-- `Dark Mode`
-- `add`
-- `delete`
-- `filter`
+> practice react with docker
